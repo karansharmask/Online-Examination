@@ -1,0 +1,266 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Inner.master.cs" Inherits="Inner" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <script type="text/javascript" language="javascript">        function DisableBackButton() {
+            window.history.forward()
+        } DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) {
+            if (evt.persisted)
+                DisableBackButton()
+        }
+        window.onunload = function () { void (0) } 
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Online Examination</title>
+    <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+    <link href="generic.css" rel="stylesheet" type="text/css" />
+    <link href="Online_Examination_style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="Online_Examination_header_wrapper">
+        <div id="Online_Examination_header">
+            <div id="sliderFrame">
+                <div id="slider">
+                    <img src="images/image-slider-1.jpg" alt="Welcome to the New Age of Examination." />
+                    <img src="images/image-slider-2.jpg" alt="No Need more Paper Work." />
+                    <img src="images/image-slider-3.jpg" alt="" />
+                    <img src="images/image-slider-4.jpg" alt="Success." />
+                    <img src="images/image-slider-5.jpg" alt="Further Studies." />
+                </div>
+            </div>
+        </div>
+        <!-- end of Online_Examination_header -->
+        <!-- end of Online_Examination_menu_wrapper -->
+        <asp:Menu ID="mnuAdmin" runat="server" Orientation="Horizontal" BackColor="#B5C7DE"
+            DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em" ForeColor="#284E98"
+            StaticSubMenuIndent="30px" Visible="False">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="30px" VerticalPadding="10px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <Items>
+                <asp:MenuItem Text="User" Value="User">
+                    <asp:MenuItem NavigateUrl="~/Admin_Information.aspx" Text="Admin Information" Value="Admin Information">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="HOD Information" Value="HOD Information" NavigateUrl="~/HOD_Information.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Faculty Information" Value="Faculty Information" NavigateUrl="~/Faculty_Information.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Student_Information.aspx" 
+                        Text="Student Information" Value="Student Information"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Department" Value="Department">
+                    <asp:MenuItem Text="Department Information" Value="Department Information" NavigateUrl="~/Department_Info.aspx">
+                    </asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Exam" Value="Exam">
+                    <asp:MenuItem NavigateUrl="~/Exam_Info.aspx" Text="Exam Information" 
+                        Value="Exam Information"></asp:MenuItem>
+                    <asp:MenuItem Text="Subject Information" Value="Subject Information" NavigateUrl="~/Sub_Info.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Student_Exam_Attend_Detail.aspx" Text="Student Exam Attend Detail"
+                        Value="Student Exam Attend Detail"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Static Reports" Value="Static Reports">
+                    <asp:MenuItem NavigateUrl="~/rptViewAdmin_Information.aspx" Text="Admin Information"
+                        Value="Admin Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewHOD_Information.aspx" Text="HOD Information"
+                        Value="HOD Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewFaculty_Information.aspx" Text="Faculty Information"
+                        Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewStudent_Information.aspx" Text="Student Information"
+                        Value="Student Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewQuestion_Set_Information.aspx" Text="Question Set Information"
+                        Value="Question Set Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewExam_Information.aspx" Text="Exam Information"
+                        Value="Exam Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewStudent_Exam_Attend_Detail.aspx" Text="Student Exam Attend Detail"
+                        Value="Student Exam Attend Detail"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewDepartment_Information.aspx" Text="Department Information"
+                        Value="Department Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewSubject_Information.aspx" Text="Subject Information"
+                        Value="Subject Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewGive_Feedback.aspx" Text="Feedbacks" Value="Feedbacks">
+                    </asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Dynamic Reports" Value="Dynamic Reports">
+                    <asp:MenuItem NavigateUrl="~/crtViewHODInformation.aspx" Text="HOD Information" 
+                        Value="HOD Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/crtViewFacultyInformation.aspx" 
+                        Text="Faculty Information" Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/crtViewStudentInformation.aspx" 
+                        Text="Student Information" Value="Student Information"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Settings" Value="Settings">
+                    <asp:MenuItem Text="Change Password" Value="Change Password" NavigateUrl="~/Change_Password.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Logout" Value="Logout" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="10px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+        <asp:Menu ID="mnuHOD" runat="server" Orientation="Horizontal" Visible="False" BackColor="#B5C7DE"
+            DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em" ForeColor="#284E98"
+            StaticSubMenuIndent="30px">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="30px" VerticalPadding="10px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <Items>
+                <asp:MenuItem Text="HOD Information" Value="HOD Information" NavigateUrl="~/HOD_Information.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Faculty Information" Value="Faculty Information" NavigateUrl="~/Faculty_Information.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Exam Information" Value="Exam Information" NavigateUrl="~/Exam_Info.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Static Reports" Value="Static Reports">
+                    <asp:MenuItem NavigateUrl="~/rptViewHOD_Information.aspx" Text="HOD Information"
+                        Value="HOD Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewFaculty_Information.aspx" Text="Faculty Information"
+                        Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewDepartment_Information.aspx" Text="Department Information"
+                        Value="Department Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewExam_Information.aspx" Text="Exam Information"
+                        Value="Exam Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewStudent_Exam_Attend_Detail.aspx" Text="Student Exam Attend Detail"
+                        Value="Student Exam Attend Detail"></asp:MenuItem>
+                    <asp:MenuItem Text="Answer Sheets" Value="Answer Sheets"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Dynamic Reports" Value="Dynamic Reports">
+                    <asp:MenuItem NavigateUrl="~/crtViewHODInformation.aspx" Text="HOD Information" 
+                        Value="HOD Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/crtViewFacultyInformation.aspx" 
+                        Text="Faculty Information" Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/crtViewStudentInformation.aspx" 
+                        Text="Student Information" Value="Student Information"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Settings" Value="Settings">
+                    <asp:MenuItem NavigateUrl="~/Change_Password.aspx" Text="Change Password" Value="Change Password">
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Logout" Value="Logout"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="10px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+        <asp:Menu ID="mnuFaculty" runat="server" Orientation="Horizontal" Visible="False"
+            BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em"
+            ForeColor="#284E98" StaticSubMenuIndent="30px">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="30px" VerticalPadding="10px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <Items>
+                <asp:MenuItem Text="Exam Information" Value="f1" NavigateUrl="~/Exam_Info.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Faculty_Information.aspx" Text="Faculty Information"
+                    Value="Faculty Information"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Sub_Info.aspx" Text="Subject Information" Value="Subject Information">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Question Set Information" Value="f2" NavigateUrl="~/Que_Set_Info.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Answer Sheets" Value="f3" NavigateUrl="~/Answer_Sheets.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Static Reports" Value="Static Reports">
+                    <asp:MenuItem NavigateUrl="~/rptViewFaculty_Information.aspx" Text="Faculty Information"
+                        Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewDepartment_Information.aspx" Text="Department Information"
+                        Value="Department Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewSubject_Information.aspx" Text="Subject Information"
+                        Value="Subject Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewQuestion_Set_Information.aspx" Text="Question Set Information"
+                        Value="Question Set Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewStudent_Exam_Attend_Detail.aspx" Text="Student Exam Attend Detail"
+                        Value="Student Exam Attend Detail"></asp:MenuItem>
+                    <asp:MenuItem Text="Answer Sheets" Value="Answer Sheets"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Dynamic Reports" Value="Dynamic Reports">
+                    <asp:MenuItem NavigateUrl="~/crtViewFacultyInformation.aspx" 
+                        Text="Faculty Information" Value="Faculty Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/crtViewStudentInformation.aspx" 
+                        Text="Student Information" Value="Student Information"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Settings" Value="Settings">
+                    <asp:MenuItem NavigateUrl="~/Change_Password.aspx" Text="Change Password" Value="Change Password">
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Logout" Value="Logout"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="10px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+        <asp:Menu ID="mnuStudent" runat="server" Orientation="Horizontal" Visible="False"
+            BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em"
+            ForeColor="#284E98" StaticSubMenuIndent="30px">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="30px" VerticalPadding="10px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <Items>
+                <asp:MenuItem NavigateUrl="~/Rules_And_Regulation.aspx" Text="Start Exam" 
+                    Value="Start Exam">
+                </asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/rptViewExam_Information.aspx" Text="Exam Notifiction"
+                    Value="Exam Notifiction"></asp:MenuItem>
+                <asp:MenuItem Text="Feedback" Value="Feedback">
+                    <asp:MenuItem NavigateUrl="~/GiveFeedback.aspx" Text="Give Feedback" Value="Give Feedback">
+                    </asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Reports" Value="Reports">
+                    <asp:MenuItem NavigateUrl="~/rptViewDepartment_Information.aspx" Text="Department Information"
+                        Value="Department Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewSubject_Information.aspx" Text="Subject Information"
+                        Value="Subject Information"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/rptViewGive_Feedback.aspx" Text="Feedbacks" Value="Feedbacks">
+                    </asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Text="Settings" Value="Settings">
+                    <asp:MenuItem NavigateUrl="~/Change_Password.aspx" Text="Change Password" Value="Change Password">
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Logout" Value="Logout"></asp:MenuItem>
+                </asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="10px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+    </div>
+    <div style="margin-left: 1000px">
+        <asp:Label ID="lblWelcome" runat="server" Text="Label"></asp:Label>
+    </div>
+    <div style="margin-bottom: 300px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="Online_Examination_footer_wrapper">
+        <div id="Online_Examination_footer">
+            <ul class="footer_menu">
+                <li><a href="Default.aspx">Home</a></li>
+                <li><a href="Login.aspx">Login</a></li>
+                <li><a href="Register.aspx">Register</a></li>
+                <li><a href="About.aspx">About</a></li>
+                <li class="last_menu"><a href="Contact.aspx">Contact</a></li>
+            </ul>
+            Copyright © 2014 <a href="http://www.imagesoftware.co.in">Image Software Consultancy</a>
+            | Designed by Karan Sharma
+        </div>
+    </div>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js'></script>
+    <script type='text/javascript' src='js/logging.js'></script>
+    </form>
+</body>
+</html>
